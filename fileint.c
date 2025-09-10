@@ -13,7 +13,7 @@ bool addFile(char *filename, int *sum) {
   }
   int num;
   *sum = 0;
-  while (fscanf(file, "%d", &num) == 1) {
+  while (fscanf(file, "%d", &num) != EOF) {
     *sum += num;
   }
   fclose(file);
