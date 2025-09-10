@@ -7,18 +7,26 @@
 
 bool addFile(char *filename, int *sum) {
   /* BEGIN STUDENT ANSWER */
-
-  // complete as described in the README
-
-  /* END STUDENT ANSWER */
+  FILE *file = fopen(filename, "r");
+  if (file == NULL) {
+    return false;
+  }
+  int num;
+  *sum = 0;
+  while (fscanf(file, "%d", &num) == 1) {
+    *sum += num;
+  }
+  fclose(file);
   return true;
 }
 
 bool writeSum(char *filename, int sum) {
   /* BEGIN STUDENT ANSWER */
-
-  // complete as described in the README
-
-  /* END STUDENT ANSWER */
+  FILE *file = fopen(filename, "w");
+  if (file == NULL) {
+    return false;
+  }
+  fprintf(file, "%d\n", sum);
+  fclose(file);
   return true;
 }
